@@ -67,6 +67,21 @@ class CreateUsersTable extends Migration
 
             )
         );
+        DB::table('users')->insert(
+            array(
+                'name' => 'tea',
+                'surname'=>'tea',
+                'username'=>'tea',
+                'password'=>Hash::make('tea'),
+                'email'=>'tea',
+                'photo_link'=>'img/user_icon.png',
+                'join_date'=>Carbon::now(),
+                'status'=>'active',
+                'SystemRole_id'=>1
+
+
+            )
+        );
 
     }
 
