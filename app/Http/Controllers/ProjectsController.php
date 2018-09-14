@@ -69,12 +69,7 @@ class ProjectsController extends Controller
                 $teams[$project->name]= $this->getProjectsTeams($project);
                 $organizers[$project->name]=$this->getProjectOrganizer($project);
             }
-<<<<<<< Updated upstream
             return view('projects', compact('projects', 'positions', 'button', 'project_language', 'teams', 'organizers', 'user'));
-
-=======
-            return view('projects', compact('projects', 'positions', 'button', 'project_language', 'teams'));
->>>>>>> Stashed changes
         }
         else {
             return view('projects', compact('projects', 'positions', 'button', 'project_language'));

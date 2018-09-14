@@ -60,7 +60,7 @@ class UserController extends Controller
 
         }
 
-        return response()->json(["userProjects"=>$projects]);
+        return $projects;
 
     }
 
@@ -71,7 +71,7 @@ class UserController extends Controller
         $team_id = $project->team->id;
         $team = Project_Attending::where('team_id', $team_id)->get();
 
-        return response()->json(["projectsTeams"=>$team]);
+        return $team;
 
 
     }

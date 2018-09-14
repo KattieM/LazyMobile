@@ -31,7 +31,7 @@ class EventController extends Controller
         foreach ($names as $name) {
             $col_name = $name;
         }
-        return response()->json(["columnName"=>$col_name->name]);
+        return $col_name->name;
     }
 
     public function isUserAttending($event)
@@ -46,7 +46,7 @@ class EventController extends Controller
         } else {
             $going = "going"; //set ungoing button
         }
-        return response()->json(["isUserAttending"=>$going]);
+        return $going;
     }
 
     public function getOrganizerInfo($event)
@@ -63,7 +63,7 @@ class EventController extends Controller
 
         $organizer = User::where('id', $organizer_id)->get()->first();
 
-        return response()->json(["organizer"=>$organizer]);
+        return $organizer;
 
     }
 
@@ -75,14 +75,14 @@ class EventController extends Controller
 
         $attendees = Event_Attending::where('event_id', $event_id)->where('role_id', $attendee_role_id)->get();
 
-        return response()->json(["allAttendees"=>$attendees]);
+        return $attendees;
     }
 
     public function numberOfAttendees($event_id)
     {
 
         $attendees = $this->getAllAttendees($event_id);
-        return response()->json(["numberOfAttendees"=>$attendees->count()]);
+        return $attendees->count();
 
     }
 

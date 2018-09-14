@@ -206,7 +206,7 @@ class ProjectController extends Controller
 
         }
 
-        return view('project', compact('click','documents','button','review_btn','applyMail_btn', 'page_name', 'project', 'reviews', 'location_name', 'language_name', 'open_positions', 'lead', 'existing_positions', 'applications', 'teams'));
+        return response()->json(["click"=>$click,"documents"=>$documents,"button"=>$button,"review_btn"=>$review_btn,"applyMail_btn"=>$applyMail_btn, "page_name"=>$page_name, "project"=>$project, "reviews"=>$reviews, "location_name"=>$location_name, "language_name"=>$language_name, "open_positions"=>$open_positions, "lead"=>$lead, "existing_positions"=>$existing_positions, "applications"=>$applications, "teams"=>$teams]);
     }
 
 
@@ -245,7 +245,7 @@ class ProjectController extends Controller
 
         $msg="Project has been saved";
 
-        return $msg;
+        return response()->json(["msg"=>$msg]);
 
     }
 

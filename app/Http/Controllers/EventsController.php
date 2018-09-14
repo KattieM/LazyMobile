@@ -23,7 +23,7 @@ class EventsController extends Controller
         } else {
             $going = "going"; //set ungoing button
         }
-        return response()->json(["isUserAttending"=>$going]);
+        return $going;
     }
 
 
@@ -31,7 +31,7 @@ class EventsController extends Controller
 
         $organizer_role = Role::where('project/event', 'event')->where('title', 'organizer')->get()->first();
         $event_attending = Event_Attending::where('event_id', $event->id)->where('role_id', $organizer_role->id)->get()->first();
-        return response()->json(["eventOrganizers"=>$event_attending->user_id]);
+        return $event_attending->user_id;
 
     }
 

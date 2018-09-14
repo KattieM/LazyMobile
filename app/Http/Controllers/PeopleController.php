@@ -50,7 +50,7 @@ class PeopleController extends Controller
 
         $users = User::all();
         $positions = SystemRole::where('id', '!=', '4')->get();
-        return view('people', compact('button', 'users', 'positions', 'add_new_user'));
+        return response()->json(["button"=>$button, "users"=>$users, "positions"=>$positions,"add_new_user"=>$add_new_user]);
 
     }
 
@@ -74,14 +74,10 @@ class PeopleController extends Controller
         $user->join_date = Carbon::today();
         $user->status = 'active';
         $user->save();
-<<<<<<< Updated upstream
 
         Mail::to($user->email)->send(new SendInformationsToUser($password, $user->username, $user->name));
 
         return response()->json((['name' => $user->name, 'surname' => $user->surname, 'photo'=>$user->photo_link]));
-=======
-        Mail::to($user->email)->send(new SendInformationsToUser($password, $user->username));
-        return response()->json((['name' => $user->name, 'surname' => $user->surname]));
->>>>>>> Stashed changes
+
     }
 }

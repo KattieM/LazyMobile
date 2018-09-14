@@ -60,7 +60,7 @@ class HomeController extends Controller
         $team_id=$project->team->id;
         $team=Project_Attending::where('team_id', $team_id)->get();
 
-        return response()->json(["projectsTeams"=>$team]);
+        return $team;
 
 
     }
@@ -70,7 +70,7 @@ class HomeController extends Controller
 
         $organizer_role = Role::where('project/event', 'event')->where('title', 'organizer')->get()->first();
         $event_attending = Event_Attending::where('event_id', $event->id)->where('role_id', $organizer_role->id)->get()->first();
-        return response()->json(["allEventOrganizers"=>$event_attending->user_id]);
+        return $event_attending->user_id;
 
     }
 
