@@ -28,7 +28,7 @@ class DocumentsController extends Controller
 
         $page_name="documents";
         $button="No button";
-        return view('documents', compact('page_name', 'button', 'existing_projects', 'documents') );
+        return response()->json(["page_name"=>$page_name, "button"=>$button, "existing_projects"=>$existing_projects, "documents"=>$documents]);
 
 
     }

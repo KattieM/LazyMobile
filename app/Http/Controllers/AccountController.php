@@ -16,7 +16,7 @@ class AccountController extends Controller
     {
         $button = "No button";
 
-        return view('account', compact('button'));
+        return response()->json(["button"=>$button]);
 
     }
 
