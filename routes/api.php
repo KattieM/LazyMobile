@@ -26,7 +26,7 @@ Route::group([
 
 });
 
-Route::get('/home', 'HomeController@returnEventsAndProjects')->middleware('api');
+Route::get('/home', 'HomeController@returnEventsAndProjects');
 Route::put('/home', 'HomeController@attendEvent')->middleware('api');
 Route::delete('/home', 'HomeController@unattendEvent')->middleware('api');
 

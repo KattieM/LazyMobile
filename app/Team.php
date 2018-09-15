@@ -16,6 +16,7 @@ class Team extends Model
 
     public function project_attendings(){
 
+        //lalala
         return $this->hasMany('App\Project_Attending');
     }
 
